@@ -29,7 +29,6 @@ public class BatchController {
 
     @PutMapping(value = "/{batchNo}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public boolean updateBatch(@PathVariable int batchNo, @RequestBody BatchDTO batchDTO) {
-        System.out.println(batchNo);
         return batchService.updateBatch(batchNo, batchDTO);
     }
 
