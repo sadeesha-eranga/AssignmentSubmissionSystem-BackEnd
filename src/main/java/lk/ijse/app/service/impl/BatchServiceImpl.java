@@ -47,7 +47,8 @@ public class BatchServiceImpl implements BatchService {
 
     @Override
     public BatchDTO searchBatch(int batchNo) {
-        return null;
+        Batch batch = batchRepository.findById(batchNo).get();
+        return new BatchDTO(batch.getBatchNo(),batch.getName(),batch.getBranch());
     }
 
     @Override

@@ -41,17 +41,41 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public boolean updateStudent(StudentDTO studentDTO) {
-        return false;
+        boolean exists = studentRepository.existsById(studentDTO.getStudentId());
+        if (!exists) {
+            return false;
+        } else {
+            studentRepository.save(new Student(studentDTO.getName(),
+                    studentDTO.getGender(),
+                    studentDTO.getDob(),
+                    studentDTO.getEmail(),
+                    studentDTO.getMobile(),
+                    new Batch(studentDTO.getBatchDTO().getBatchNo(),studentDTO.getBatchDTO().getName(),studentDTO.getBatchDTO().getBranch())));
+            return true;
+        }
     }
 
     @Override
     public boolean deleteStudent(int studentId) {
-        return false;
+        boolean exists = studentRepository.existsById(studentId);
+        if (!exists) {
+            return false;
+        } else {
+            studentRepository.deleteById(studentId);
+            return true;
+        }
     }
 
     @Override
     public StudentDTO searchStudent(int studentId) {
-        return null;
+        Student student = studentRepository.findById(studentId).get();
+        return new StudentDTO(student.getStudentId(),
+                student.getName(),
+                student.getGender(),
+                student.getDob(),
+                student.getEmail(),
+                student.getMobile(),
+                new BatchDTO(student.getBatch().getBatchNo(),student.getBatch().getName(),student.getBatch().getBranch()));
     }
 
     @Override

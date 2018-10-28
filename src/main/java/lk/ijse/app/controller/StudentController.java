@@ -31,4 +31,19 @@ public class StudentController {
     public List<StudentDTO> getAllStudents() {
         return studentService.getAllStudents();
     }
+
+    @DeleteMapping(value = "/{studentId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public boolean deleteStudent(@PathVariable int studentId) {
+        return studentService.deleteStudent(studentId);
+    }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public boolean updateStudent(@RequestBody StudentDTO studentDTO) {
+        return studentService.updateStudent(studentDTO);
+    }
+
+    @GetMapping(value = "/studentId", produces = MediaType.APPLICATION_JSON_VALUE)
+    public StudentDTO searchStudent(@PathVariable int studentId) {
+        return studentService.searchStudent(studentId);
+    }
 }
