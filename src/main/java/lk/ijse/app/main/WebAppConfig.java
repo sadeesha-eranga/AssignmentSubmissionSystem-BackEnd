@@ -1,6 +1,6 @@
 package lk.ijse.app.main;
 
-import lk.ijse.app.repository.UserRepository;
+import lk.ijse.app.repository.AdminRepository;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 @EnableWebMvc
 @ComponentScan("lk.ijse.app")
-@EnableJpaRepositories(basePackageClasses = {UserRepository.class})
+@EnableJpaRepositories(basePackageClasses = {AdminRepository.class})
 public class WebAppConfig implements WebMvcConfigurer {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

@@ -1,6 +1,6 @@
 package lk.ijse.app.repository;
 
-import lk.ijse.app.entity.User;
+import lk.ijse.app.entity.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
  * Time: 7:48 PM
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, String> {
+public interface AdminRepository extends JpaRepository<Admin, String> {
 }

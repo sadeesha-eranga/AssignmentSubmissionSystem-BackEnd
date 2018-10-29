@@ -10,16 +10,16 @@ import javax.persistence.Id;
  * Time: 7:46 PM
  */
 @Entity
-public class User {
+public class Admin {
 
     @Id
     private String username;
     private String password;
 
-    public User() {
+    public Admin() {
     }
 
-    public User(String username, String password) {
+    public Admin(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -42,7 +42,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Admin{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 '}';

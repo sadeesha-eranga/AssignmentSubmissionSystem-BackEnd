@@ -8,7 +8,7 @@ import lk.ijse.app.dto.UserDTO;
  * Date: 2018-10-24
  * Time: 7:49 PM
  */
-public interface UserService {
+public interface AdminService {
 
     boolean authenticateUser(UserDTO userDTO);
 

@@ -1,7 +1,7 @@
 package lk.ijse.app.controller;
 
 import lk.ijse.app.dto.UserDTO;
-import lk.ijse.app.service.UserService;
+import lk.ijse.app.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @CrossOrigin
-@RequestMapping("api/v1/user")
-public class UserController {
+@RequestMapping("api/v1/admin")
+public class AdminController {
 
     @Autowired
-    private UserService userService;
+    private AdminService adminService;
 
     @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public boolean authenticateUser(@RequestBody UserDTO userDTO) {
-        return userService.authenticateUser(userDTO);
+        return adminService.authenticateUser(userDTO);
     }
 }
